@@ -1,17 +1,14 @@
-import { Movies, responseGetMovies } from "@/interfaces/interfaces";
+import { MovieDetail, Movies, responseGetMovies } from "@/interfaces/interfaces";
 import { baseUrl } from "@/utils/addonsUrls";
+import { options } from "@/utils/requestOptions";
 
 export interface GetMovieParams {
   page:string
 }
+export interface GetMovieDetailParams {
+  idMovie:number
+}
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ZjViODJkOTY0NDNjYThjOWI3M2UzZDM3NmNlYWVlZSIsInN1YiI6IjY0NmQ0ZGEyMmJjZjY3MDBmZTYyNjQyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ktdzTj-8CTT29nzpzTu36dJzG5xQOozDtuIVj6TSB7M'
-  }
-};
 
 export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
   if(direction ==="next"){
@@ -36,5 +33,18 @@ export const getMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {
   } catch (error) {
     console.error("getMovies,error")
     return []
+  }
+}
+
+export const getMovieDetail = async ({idMovie}:GetMovieDetailParams):Promise<MovieDetail| undefined> => {
+  const urlComplete = `${baseUrl}/movie/${idMovie}?language=en-US`
+  
+  try {
+    const response = await fetch(urlComplete,options)
+    const movieDetail:MovieDetail = await response.json()
+    return movieDetail
+
+  } catch (error) {
+    console.error("getMovies,error")
   }
 }

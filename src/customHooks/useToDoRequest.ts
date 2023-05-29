@@ -1,18 +1,20 @@
-import { Movies } from "@/interfaces/interfaces";
-import { GetMovieParams } from "@/services/movies";
+import { MovieDetail, Movies } from "@/interfaces/interfaces";
+import { GetMovieDetailParams, GetMovieParams } from "@/services/movies";
 import { useEffect, useState } from "react";
-//Todos estos estilos se tiene que ir incrementando a medida que se reutiliza el hook
-type ServiceParams = GetMovieParams
+//Todos estos tipos se tiene que ir incrementando a medida que se reutiliza el hook
+export type ServiceParams = GetMovieParams | GetMovieDetailParams 
+export type ReturnServices = Movies[] | MovieDetail | undefined
 
-interface UseToDoRequest {
-  service: (serviceParams:ServiceParams)=> Promise<Movies[]>
-  serviceParams?: ServiceParams
+
+interface UseToDoRequest<T extends ServiceParams,R extends ReturnServices> {
+  service: (serviceParams:T) => Promise<R>
+  serviceParams?: T
 }
 
-type SaveData = Movies[] 
+// type SaveData = Movies[] 
 //!faltan los catch en los llamados asincronos
-export default function useToDoRequest({service,serviceParams}:UseToDoRequest) {
-  const [data, setData] = useState<SaveData>([])
+export default function useToDoRequest<T extends ServiceParams,R extends ReturnServices>({service,serviceParams}:UseToDoRequest<T,R>) {
+  const [data, setData] = useState<ReturnServices>([])
   useEffect(()=>{
     serviceParams && 
     service(serviceParams)
@@ -22,8 +24,8 @@ export default function useToDoRequest({service,serviceParams}:UseToDoRequest) {
     })
   },[])
 
-  const changePaginate = (serviceParams:ServiceParams) => {
-    serviceParams && 
+  const changePaginate = (serviceParams:T) => {
+    serviceParams &&
     service(serviceParams)
     .then(res=> res)
     .then(data => {
