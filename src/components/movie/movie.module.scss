@@ -1,4 +1,7 @@
 .container{
   background-color: rgb(13, 95, 71);
   margin: 20px;
+  padding: 5px;
+  list-style: none;
+  grid-column: span 1;
 }

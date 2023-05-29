@@ -1,7 +1,8 @@
 import Movie from "@/components/movie/movie";
 import useToDoRequest from "@/customHooks/useToDoRequest";
 import { getMovies, setPageMovies } from "@/services/movies";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import styles from "../../styles/explorer.module.scss";
 const paramsHook = {
   service: getMovies,
   serviceParams: { page: "1" },
@@ -19,9 +20,13 @@ export default function Explorer() {
 
   return (
     <div>
-      {data.map((movie) => {
-        return <Movie movie={movie} key={movie.id} />;
-      })}
+      <ul className={styles.container}>
+        {data.map((movie) => {
+          if (movie.poster_path) {
+            return <Movie movie={movie} key={movie.id} />;
+          }
+        })}
+      </ul>
       <button onClick={() => handleChangePage("back")}>go back</button>
       <br />
       <button onClick={() => handleChangePage("next")}>next</button>

@@ -18,11 +18,11 @@ export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
     const newPage = Number(currentPage) + 1
     return {page:String(newPage)}
   }
-  if(currentPage !=="0"){
+  if(currentPage !=="1"){
     const newPage = Number(currentPage) -1 
     return {page:String(newPage)}
   }    
-  return {page:"0"}
+  return {page:"1"}
 }
 
 export const getMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {

@@ -8,12 +8,11 @@ interface MovieProps {
 
 export default function Movie({ movie }: MovieProps) {
   return (
-    <div className={styles.container}>
+    <li className={styles.container}>
       <p>{movie.title}</p>
-      <p>{movie.original_title}</p>
       <ImageMovie url={movie.poster_path} />
       <p>{movie.release_date}</p>
-      <p>{movie.video}</p>
-    </div>
+      <p>{movie.vote_average}</p>
+    </li>
   );
 }
