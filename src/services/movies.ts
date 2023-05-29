@@ -13,13 +13,26 @@ const options = {
   }
 };
 
+export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
+  if(direction ==="next"){
+    const newPage = Number(currentPage) + 1
+    return {page:String(newPage)}
+  }
+  if(currentPage !=="0"){
+    const newPage = Number(currentPage) -1 
+    return {page:String(newPage)}
+  }    
+  return {page:"0"}
+}
 
 export const getMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {
-  const urlComplete = `${baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}}&sort_by=popularity.desc}`
+  const urlComplete = `${baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${Number(page)}&sort_by=popularity.desc}`
+  
   try {
     const response = await fetch(urlComplete,options)
     const movies:responseGetMovies = await response.json()
     return movies.results
+
   } catch (error) {
     console.error("getMovies,error")
     return []
