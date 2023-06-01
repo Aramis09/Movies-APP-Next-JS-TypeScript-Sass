@@ -1,3 +1,4 @@
+import ImageMovie from "@/components/imageMovie/imageMovie";
 import useToDoRequest from "@/customHooks/useToDoRequest";
 import { MovieDetail } from "@/interfaces/interfaces";
 import { GetMovieDetailParams, getMovieDetail } from "@/services/movies";
@@ -7,7 +8,7 @@ import { useEffect } from "react";
 export default function MovieDetail(): JSX.Element {
   const router = useRouter();
   const idMovie = Number(router.query.idMovie);
-  const { data, reload } = useToDoRequest<
+  const { data: movie, reload } = useToDoRequest<
     GetMovieDetailParams,
     MovieDetail | undefined
   >({
@@ -20,15 +21,16 @@ export default function MovieDetail(): JSX.Element {
 
   return (
     <>
-      {data ? (
+      {movie ? (
         <>
-          <h4>{data.title}</h4>
-          <p>{data.homepage}</p>
-          <p>{data.overview}</p>
-          <p>{data.release_date}</p>
+          <h4>{movie.title}</h4>
+          <ImageMovie url={movie.poster_path} />
+          <p>{movie.release_date}</p>
+          <p>{movie.homepage}</p>
+          <p>{movie.overview}</p>
         </>
       ) : (
-        <>todo mal</>
+        <>Opps!!, Movie don't available</>
       )}
     </>
   );
