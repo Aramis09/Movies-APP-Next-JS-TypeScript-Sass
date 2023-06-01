@@ -6,15 +6,16 @@ export type ServiceParams = GetMovieParams | GetMovieDetailParams
 export type ReturnServices = Movies[] | MovieDetail | undefined
 
 
-interface UseToDoRequest<T extends ServiceParams,R extends ReturnServices> {
+interface UseToDoRequest<T,R> {
   service: (serviceParams:T) => Promise<R>
   serviceParams?: T
 }
 
 // type SaveData = Movies[] 
 //!faltan los catch en los llamados asincronos
-export default function useToDoRequest<T extends ServiceParams,R extends ReturnServices>({service,serviceParams}:UseToDoRequest<T,R>) {
+export default function useToDoRequest<T extends ServiceParams ,R extends ReturnServices>({service,serviceParams}:UseToDoRequest<T,R>) {
   const [data, setData] = useState<ReturnServices>([])
+  const [reloadRequest, setReloadRequest] = useState(false)
   useEffect(()=>{
     serviceParams && 
     service(serviceParams)
@@ -32,5 +33,7 @@ export default function useToDoRequest<T extends ServiceParams,R extends ReturnS
       setData(data)
     })
   }
-  return {data,setData,changePaginate}
+  const reload = ()=> setReloadRequest(!reloadRequest)
+
+  return {data,setData,changePaginate,reload}
 }
