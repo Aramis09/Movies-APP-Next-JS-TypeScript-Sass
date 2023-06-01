@@ -20,8 +20,16 @@ export default function MovieDetail(): JSX.Element {
 
   return (
     <>
-      {!isNaN(idMovie) ? <>{JSON.stringify(data, null, 2)}</> : <>recarga</>}
-      {data}
+      {data ? (
+        <>
+          <h4>{data.title}</h4>
+          <p>{data.homepage}</p>
+          <p>{data.overview}</p>
+          <p>{data.release_date}</p>
+        </>
+      ) : (
+        <>todo mal</>
+      )}
     </>
   );
 }
