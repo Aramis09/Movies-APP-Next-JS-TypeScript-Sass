@@ -9,13 +9,14 @@ export type ReturnServices = Movies[] | MovieDetail | undefined
 interface UseToDoRequest<T,R> {
   service: (serviceParams:T) => Promise<R>
   serviceParams?: T
+
 }
 
 // type SaveData = Movies[] 
 //!faltan los catch en los llamados asincronos
 export default function useToDoRequest<T extends ServiceParams ,R extends ReturnServices>({service,serviceParams}:UseToDoRequest<T,R>) {
   const [data, setData] = useState<ReturnServices>([])
-  const [reloadRequest, setReloadRequest] = useState(false)
+  const [reloadRequest, setReloadRequest] = useState<boolean>(false)
   useEffect(()=>{
     serviceParams && 
     service(serviceParams)
@@ -23,7 +24,7 @@ export default function useToDoRequest<T extends ServiceParams ,R extends Return
     .then(data => {
       setData(data)
     })
-  },[])
+  },[reloadRequest])
 
   const changePaginate = (serviceParams:T) => {
     serviceParams &&

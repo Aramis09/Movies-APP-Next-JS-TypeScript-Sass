@@ -1,6 +1,7 @@
 import { MovieDetail, Movies, responseGetMovies } from "@/interfaces/interfaces";
 import { baseUrl } from "@/utils/addonsUrls";
 import { options } from "@/utils/requestOptions";
+import { verify } from "crypto";
 
 export interface GetMovieParams {
   page:string
@@ -9,7 +10,10 @@ export interface GetMovieDetailParams {
   idMovie:number
 }
 
-
+//! Esto lo hago para ver si lo puedo reutilizar, asi es un poco mas entendible
+export const isArray = (value:any):boolean => {
+  return value && Array.isArray(value)
+}
 export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
   if(direction ==="next"){
     const newPage = Number(currentPage) + 1
