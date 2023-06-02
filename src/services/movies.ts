@@ -1,7 +1,6 @@
-import { MovieDetail, Movies, responseGetMovies } from "@/interfaces/interfaces";
+import { MovieDetail, responseGetMovies } from "@/interfaces/interfaces";
 import { baseUrl, urlToGetPopularMovies, urlToGetTopRatedMovies, urlTogetMovieToExplorer } from "@/utils/addonsUrls";
 import { options } from "@/utils/requestOptions";
-import { verify } from "crypto";
 
 export interface GetMovieParams {
   page:string
