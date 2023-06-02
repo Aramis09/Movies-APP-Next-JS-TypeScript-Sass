@@ -1,14 +1,14 @@
 import useToDoRequest from "@/customHooks/useToDoRequest";
-import { getTopRatedMovies } from "@/services/movies";
-import React from "react";
+import { getTopRatedMovies, handleChangePage } from "@/services/movies";
+import React, { useRef } from "react";
 import Movie from "../movie/movie";
 
 export default function TopRatedMovies() {
+  const page = useRef("1");
   const { data: moviesList, changePaginate } = useToDoRequest({
     service: getTopRatedMovies,
     serviceParams: { page: "1" },
   });
-  console.log("etre");
 
   return (
     <div>
@@ -22,9 +22,13 @@ export default function TopRatedMovies() {
             }
           })}
       </ul>
-      {/* <button onClick={() => handleChangePage("back")}>go back</button>
+      <button onClick={() => handleChangePage("back", changePaginate, page)}>
+        go back
+      </button>
       <br />
-      <button onClick={() => handleChangePage("next")}>next</button> */}
+      <button onClick={() => handleChangePage("next", changePaginate, page)}>
+        next
+      </button>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Movie from "@/components/movie/movie";
 import useToDoRequest from "@/customHooks/useToDoRequest";
-import { GetMovieParams, getMovies, setPageMovies } from "@/services/movies";
+import { GetMovieParams, getMovies, handleChangePage } from "@/services/movies";
 import React, { useRef } from "react";
 import styles from "../../styles/explorer.module.scss";
 import { Movies } from "@/interfaces/interfaces";
@@ -16,12 +16,6 @@ export default function Explorer() {
     Movies[]
   >(paramsHook);
 
-  const handleChangePage = (direction: "back" | "next") => {
-    const newPage = setPageMovies(page.current, direction);
-    changePaginate(newPage);
-    page.current = newPage.page;
-  };
-
   return (
     <div>
       <ul className={styles.container}>
@@ -33,9 +27,13 @@ export default function Explorer() {
             }
           })}
       </ul>
-      <button onClick={() => handleChangePage("back")}>go back</button>
+      <button onClick={() => handleChangePage("back", changePaginate, page)}>
+        go back
+      </button>
       <br />
-      <button onClick={() => handleChangePage("next")}>next</button>
+      <button onClick={() => handleChangePage("next", changePaginate, page)}>
+        next
+      </button>
     </div>
   );
 }

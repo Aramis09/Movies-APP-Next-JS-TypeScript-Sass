@@ -22,6 +22,17 @@ export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
   }    
   return {page:"1"}
 }
+
+export const handleChangePage = (
+  direction: "back" | "next",
+  changePaginate: (params: GetMovieParams) => void,
+  page: React.MutableRefObject<string>
+) => {
+  const newPage = setPageMovies(page.current, direction);
+  changePaginate(newPage);
+  page.current = newPage.page;
+};
+
 //! get list movies to "explorer page"
 export const getMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {
   const urlComplete = `${baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${Number(page)}&sort_by=popularity.desc}`
