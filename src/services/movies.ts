@@ -49,3 +49,17 @@ export const getMovieDetail = async ({idMovie}:GetMovieDetailParams):Promise<Mov
     console.error("getMovies,error")
   }
 }
+
+export const getTopRatedMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {
+  const urlComplete = `${baseUrl}/movie/top_rated?language=en-US&page=${page}`
+  
+  try {
+    const response = await fetch(urlComplete,options)
+    const responseObj:responseGetMovies = await response.json()
+    return responseObj.results
+
+  } catch (error) {
+    console.error("getTopRatedMovies,error")
+    return []
+  }
+}
