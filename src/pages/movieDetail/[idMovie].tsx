@@ -1,8 +1,7 @@
 import ImageMovie from "@/components/imageMovie/imageMovie";
-import TopRatedMovies from "@/components/topRatedMovies/topRatedMovies";
 import useToDoRequest from "@/customHooks/useToDoRequest";
 import { MovieDetail } from "@/interfaces/interfaces";
-import { GetMovieDetailParams, getMovieDetail } from "@/services/movies";
+import { getMovieDetail } from "@/services/movies";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 

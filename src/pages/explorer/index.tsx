@@ -1,13 +1,11 @@
 import Movie from "@/components/movie/movie";
 import useToDoRequest from "@/customHooks/useToDoRequest";
 import {
-  GetMovieParams,
   handleChangePage,
   serviceGetMoviesToExplorer,
 } from "@/services/movies";
 import React, { useRef } from "react";
 import styles from "../../styles/explorer.module.scss";
-import { Movies } from "@/interfaces/interfaces";
 const paramsHook = {
   service: serviceGetMoviesToExplorer,
   serviceParams: { page: "1" },
