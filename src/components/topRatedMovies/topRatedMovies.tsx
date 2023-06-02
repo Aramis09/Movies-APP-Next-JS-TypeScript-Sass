@@ -1,12 +1,12 @@
 import useToDoRequest from "@/customHooks/useToDoRequest";
-import { getTopRatedMovies, handleChangePage } from "@/services/movies";
+import { handleChangePage, serviceGetTopRatedMovies } from "@/services/movies";
 import React, { useRef } from "react";
 import Movie from "../movie/movie";
 
 export default function TopRatedMovies() {
   const page = useRef("1");
   const { data: moviesList, changePaginate } = useToDoRequest({
-    service: getTopRatedMovies,
+    service: serviceGetTopRatedMovies,
     serviceParams: { page: "1" },
   });
 
