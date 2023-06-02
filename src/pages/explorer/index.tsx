@@ -11,7 +11,7 @@ const paramsHook = {
 
 export default function Explorer() {
   const page = useRef("1");
-  const { data, setData, changePaginate } = useToDoRequest<
+  const { data: moviesList, changePaginate } = useToDoRequest<
     GetMovieParams,
     Movies[]
   >(paramsHook);
@@ -25,9 +25,9 @@ export default function Explorer() {
   return (
     <div>
       <ul className={styles.container}>
-        {data &&
-          Array.isArray(data) &&
-          data.map((movie) => {
+        {moviesList &&
+          Array.isArray(moviesList) &&
+          moviesList.map((movie) => {
             if (movie.poster_path) {
               return <Movie movie={movie} key={movie.id} />;
             }
