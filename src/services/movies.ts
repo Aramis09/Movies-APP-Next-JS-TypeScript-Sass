@@ -10,10 +10,7 @@ export interface GetMovieDetailParams {
   idMovie:number
 }
 
-//! Esto lo hago para ver si lo puedo reutilizar, asi es un poco mas entendible
-export const isArray = (value:any):boolean => {
-  return value && Array.isArray(value)
-}
+//! this is used on "explorer page" to handle nevigate 
 export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
   if(direction ==="next"){
     const newPage = Number(currentPage) + 1
@@ -25,7 +22,7 @@ export const setPageMovies = (currentPage:string,direction:"back"|"next")=> {
   }    
   return {page:"1"}
 }
-
+//! get list movies to "explorer page"
 export const getMovies = async ({page}:GetMovieParams):Promise<Movies[]> => {
   const urlComplete = `${baseUrl}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${Number(page)}&sort_by=popularity.desc}`
   
