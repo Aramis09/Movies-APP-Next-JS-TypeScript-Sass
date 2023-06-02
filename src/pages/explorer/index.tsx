@@ -15,10 +15,7 @@ const paramsHook = {
 
 export default function Explorer() {
   const page = useRef("1");
-  const { data: moviesList, changePaginate } = useToDoRequest<
-    GetMovieParams,
-    Movies[]
-  >(paramsHook);
+  const { data: moviesList, changePaginate } = useToDoRequest(paramsHook);
 
   return (
     <div>

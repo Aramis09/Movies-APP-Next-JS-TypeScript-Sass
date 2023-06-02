@@ -9,10 +9,7 @@ import { useEffect } from "react";
 export default function MovieDetail(): JSX.Element {
   const router = useRouter();
   const idMovie = Number(router.query.idMovie);
-  const { data: movie, reload } = useToDoRequest<
-    GetMovieDetailParams,
-    MovieDetail | undefined
-  >({
+  const { data: movie, reload } = useToDoRequest({
     service: getMovieDetail,
     serviceParams: { idMovie: idMovie },
   });
