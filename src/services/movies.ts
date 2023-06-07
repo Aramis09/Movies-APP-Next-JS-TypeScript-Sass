@@ -1,5 +1,5 @@
 import { MovieDetail, responseGetMovies } from "@/interfaces/interfaces";
-import { baseUrl, urlToGetPopularMovies, urlToGetTopRatedMovies, urlTogetMovieToExplorer } from "@/utils/addonsUrls";
+import { baseUrl, urlGetUpcomingMovies, urlToGetPopularMovies, urlToGetTopRatedMovies, urlTogetMovieToExplorer } from "@/utils/addonsUrls";
 import { options } from "@/utils/requestOptions";
 
 export interface GetMovieParams {
@@ -46,7 +46,7 @@ export const getMovieDetail = async ({idMovie}:GetMovieDetailParams):Promise<Mov
     console.error("getMovies,error")
   }
 }
-//! get list movies to "explorer page"
+//! this create query functions to get movies of diferents category
 export const createRequestToGetArrayMovies = (nameReqest:string,urlAddons:string) => {
   return async function ({page}:GetMovieParams) {
     const urlComplete = `${baseUrl}${urlAddons}${page}`
@@ -74,4 +74,8 @@ export const  serviceGetMoviesToExplorer = createRequestToGetArrayMovies(
 export const  serviceGetPopularMovies = createRequestToGetArrayMovies(
   "getPopularMovie",
   urlToGetPopularMovies
+)
+export const  serviceGetUpcomingMovies = createRequestToGetArrayMovies(
+  "getUpcomingMovie",
+  urlGetUpcomingMovies
 )
