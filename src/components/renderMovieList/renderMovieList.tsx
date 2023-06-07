@@ -3,7 +3,7 @@ import { GetMovieParams, handleChangePage } from "@/services/movies";
 import { useRef } from "react";
 import Movie from "../movie/movie";
 import { Movies } from "@/interfaces/interfaces";
-
+import styles from "./renderMovies.module.scss";
 interface RenderMovieProps {
   service: (serviceParams: GetMovieParams) => Promise<Movies[]>;
   serviceParams?: GetMovieParams;
@@ -18,7 +18,7 @@ export default function RenderMovies({ service }: RenderMovieProps) {
 
   return (
     <div>
-      <ul>
+      <ul className={styles.container}>
         {moviesList &&
           Array.isArray(moviesList) &&
           moviesList.map((movie) => {

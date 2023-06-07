@@ -1,3 +1,4 @@
+import PopularMovies from "@/components/popularMovies/popularMovies";
 import TopRatedMovies from "@/components/topRatedMovies/topRatedMovies";
 import Head from "next/head";
 
@@ -12,6 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <TopRatedMovies />
+        <PopularMovies />
       </main>
     </>
   );
