@@ -10,12 +10,12 @@ interface MovieProps {
 export default function Movie({ movie }: MovieProps) {
   return (
     <li className={styles.container}>
-      <p className={styles.tittle}>{movie.title}</p>
+      {/* <p className={styles.tittle}>{movie.title}</p> */}
       <Link href={`/movieDetail/${String(movie.id)}`}>
         <ImageMovie url={movie.poster_path} />
       </Link>
-      <p>{movie.release_date}</p>
-      <p>{movie.vote_average}</p>
+      {/* <p>{movie.release_date}</p>
+      <p>{movie.vote_average}</p> */}
     </li>
   );
 }

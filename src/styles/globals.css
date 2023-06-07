@@ -1,6 +1,6 @@
 :root {
   font-family: 'Pacifico', cursive;
-  background-color: #EEE3CB;
+  background-color: rgb(17, 17, 17);
 }
 
 @media (prefers-color-scheme: dark) {
