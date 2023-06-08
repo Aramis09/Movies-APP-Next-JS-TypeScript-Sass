@@ -8,7 +8,7 @@ import iconArrowLefth from "../../../assets/flecha-izquierda.png";
 
 import styles from "./renderMovies.module.scss";
 import Image from "next/image";
-interface RenderMovieProps {
+export interface RenderMovieProps {
   service: (serviceParams: GetMovieParams) => Promise<Movies[]>;
   serviceParams?: GetMovieParams;
 }

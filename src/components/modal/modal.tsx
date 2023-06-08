@@ -11,7 +11,6 @@ export default function Modal(msg: MsgModalType) {
     first: "containerShowModal",
     second: "containerHideModal",
   });
-  console.log(style);
 
   return (
     <div className={style}>
