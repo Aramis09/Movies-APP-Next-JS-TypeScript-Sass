@@ -1,8 +1,5 @@
 import CarrouselMovies from "@/components/carrouselMovies/carrouselMovies";
 import Modal from "@/components/modal/modal";
-import PopularMovies from "@/components/popularMovies/popularMovies";
-import TopRatedMovies from "@/components/topRatedMovies/topRatedMovies";
-import UpcomingMovies from "@/components/upcomingMovies/upcomingMovies";
 import { msgBody } from "@/utils/strings";
 import Head from "next/head";
 import {

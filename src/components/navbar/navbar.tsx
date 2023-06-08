@@ -7,8 +7,10 @@ export default function Navbar() {
   return (
     <div className={styles.container}>
       <div className={styles.logoContainer}>
-        <Image src={iconApp} alt="iconApp" width={50} />
-        <p>FunnyMovie</p>
+        <Link href={"/"} className={styles.logoContainer}>
+          <Image src={iconApp} alt="iconApp" width={50} />
+          <p>FunnyMovie</p>
+        </Link>
       </div>
       <div className={styles.linksContainer}>
         <Link href="/"> Home</Link>
