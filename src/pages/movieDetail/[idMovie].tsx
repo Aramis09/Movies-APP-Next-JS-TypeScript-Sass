@@ -4,7 +4,7 @@ import { MovieDetail } from "@/interfaces/interfaces";
 import { getMovieDetail } from "@/services/movies";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-
+import styles from "../../styles/movieDetail.module.scss";
 export default function MovieDetail(): JSX.Element {
   const router = useRouter();
   const idMovie = Number(router.query.idMovie);
@@ -19,13 +19,13 @@ export default function MovieDetail(): JSX.Element {
   return (
     <>
       {movie ? (
-        <>
+        <div className={styles.conatiner}>
           <h4>{movie.title}</h4>
           <ImageMovie url={movie.poster_path} />
-          <p>{movie.release_date}</p>
+          <p className={styles.date}>{movie.release_date}</p>
           <p>{movie.homepage}</p>
-          <p>{movie.overview}</p>
-        </>
+          <p className={styles.resume}>{movie.overview}</p>
+        </div>
       ) : (
         <>Opps!!, Movie don't available</>
       )}

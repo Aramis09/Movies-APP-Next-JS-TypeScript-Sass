@@ -7,7 +7,11 @@ import {
   serviceGetTopRatedMovies,
   serviceGetUpcomingMovies,
 } from "@/services/movies";
-
+import Alog from "@/components/render/alog";
+const data = {
+  bar: 4,
+  val: null,
+};
 export default function Home() {
   return (
     <>
