@@ -1,9 +1,15 @@
+import CarrouselMovies from "@/components/carrouselMovies/carrouselMovies";
 import Modal from "@/components/modal/modal";
 import PopularMovies from "@/components/popularMovies/popularMovies";
 import TopRatedMovies from "@/components/topRatedMovies/topRatedMovies";
 import UpcomingMovies from "@/components/upcomingMovies/upcomingMovies";
 import { msgBody } from "@/utils/strings";
 import Head from "next/head";
+import {
+  serviceGetPopularMovies,
+  serviceGetTopRatedMovies,
+  serviceGetUpcomingMovies,
+} from "@/services/movies";
 
 export default function Home() {
   return (
@@ -17,9 +23,18 @@ export default function Home() {
       </Head>
       <main>
         <Modal tittle="Atention" body={msgBody} />
-        <TopRatedMovies />
-        <PopularMovies />
-        <UpcomingMovies />
+        <CarrouselMovies
+          tittle="Top rated movies"
+          serviceTools={{ service: serviceGetTopRatedMovies }}
+        />
+        <CarrouselMovies
+          tittle="Popular movies"
+          serviceTools={{ service: serviceGetPopularMovies }}
+        />
+        <CarrouselMovies
+          tittle="Upcoming movies"
+          serviceTools={{ service: serviceGetUpcomingMovies }}
+        />
       </main>
     </>
   );

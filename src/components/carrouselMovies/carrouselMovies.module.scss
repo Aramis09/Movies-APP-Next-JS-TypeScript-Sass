@@ -1,0 +1,20 @@
+.container {
+  margin-top: 4%;
+  position: relative;
+  padding: 10px;
+  h4{
+    text-align: right;
+    font-size: xx-large;
+    width: 30%;
+    position: absolute;
+    left: -7.5%;
+    top: 0px;
+    padding-inline: 5%;
+    background-color: #727272;
+    background-image: linear-gradient(to bottom right, rgb(137, 28, 167), rgb(15, 15, 86));
+    border-radius:  3rem;
+  }
+  h4:hover {
+    background-color: black;
+  }
+}
