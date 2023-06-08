@@ -1,5 +1,8 @@
+import Modal from "@/components/modal/modal";
 import PopularMovies from "@/components/popularMovies/popularMovies";
 import TopRatedMovies from "@/components/topRatedMovies/topRatedMovies";
+import UpcomingMovies from "@/components/upcomingMovies/upcomingMovies";
+import { msgBody } from "@/utils/strings";
 import Head from "next/head";
 
 export default function Home() {
@@ -13,8 +16,10 @@ export default function Home() {
         {/* <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Pacifico&family=Pragati+Narrow&family=Roboto:wght@300&display=swap" rel="stylesheet"> */}
       </Head>
       <main>
+        <Modal tittle="Atention" body={msgBody} />
         <TopRatedMovies />
         <PopularMovies />
+        <UpcomingMovies />
       </main>
     </>
   );

@@ -1,0 +1,1 @@
+export const msgBody = "Please press 'shift' and move scroll to move horizontal direction"
