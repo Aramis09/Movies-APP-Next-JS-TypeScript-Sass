@@ -79,3 +79,16 @@ export const  serviceGetUpcomingMovies = createRequestToGetArrayMovies(
   "getUpcomingMovie",
   urlGetUpcomingMovies
 )
+export const hashService = {
+  top: serviceGetTopRatedMovies,
+  popular:serviceGetPopularMovies,
+  upcoming:serviceGetUpcomingMovies
+}
+export const selectService = (location:string)=> {
+  if(location === "top" || location === "popular" || location === "upcoming"){
+    return hashService[location]
+  }
+  //!Return top movies by defect
+  return hashService["top"]
+}
+

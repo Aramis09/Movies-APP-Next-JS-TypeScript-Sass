@@ -14,6 +14,12 @@
     align-items: center;
     gap: 10px;
     margin-left: 1%;
+    transition: 0.5s;
+    
+  }
+  .logoContainer:hover {
+    transition: 0.5s;
+    transform: scale(1.01);
   }
   .linksContainer{
     margin-right: 5%;

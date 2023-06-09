@@ -4,6 +4,7 @@ import styles from "./carrouselMovies.module.scss";
 import RenderMovies, {
   RenderMovieProps,
 } from "../renderMovieList/renderMovieList";
+import Link from "next/link";
 
 interface CarrouselMoviesTypes {
   tittle: string;
@@ -15,7 +16,9 @@ export default function CarrouselMovies({
 }: CarrouselMoviesTypes) {
   return (
     <div className={styles.container}>
-      <h4>{tittle}</h4>
+      <Link href={`/movies/${tittle.split(" ")[0]}`}>
+        <h4>{tittle}</h4>
+      </Link>
       <RenderMovies service={serviceTools.service} />
     </div>
   );

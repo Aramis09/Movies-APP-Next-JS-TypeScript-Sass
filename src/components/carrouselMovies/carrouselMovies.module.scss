@@ -3,6 +3,8 @@
   position: relative;
   padding:0.5%;
   h4{
+    transition: 0.5s;
+    // background-image: linear-gradient(to bottom right, rgb(137, 28, 167), rgb(15, 15, 86));
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: right;
     font-size: xx-large;
@@ -11,10 +13,14 @@
     left: -10%;
     top: 0px;
     padding-inline: 5%;
-    background-image: linear-gradient(to bottom right, rgb(137, 28, 167), rgb(15, 15, 86));
     border-radius:  3rem;
+    background-image: linear-gradient(to right, #8a60fc, #06c5ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    cursor: pointer;
   }
   h4:hover {
-    background-color: red;
+    transform: scale(1.1);
   }
 }
