@@ -1,0 +1,28 @@
+.generalContainer {
+  display: flex;
+  margin: 0 auto;
+  margin-top: 3%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  .containerMovies {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(183px, 1fr));
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+    .arrows {
+      width: 70px;
+      height: 100%;
+      filter: invert(1);
+      cursor: pointer;
+  }
+  .arrows:hover{
+    transition: 0.5s;
+    filter: invert(91%) sepia(0%) saturate(0%) hue-rotate(163deg) brightness(98%) contrast(82%);;
+    height: 90px;
+    width: 90px;
+  }
+}

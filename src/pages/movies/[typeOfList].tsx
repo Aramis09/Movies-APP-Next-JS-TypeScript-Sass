@@ -7,7 +7,10 @@ export default function DiscoverMovies() {
 
   return (
     <div>
-      <RenderMovies service={selectService(location)} />
+      <RenderMovies
+        from={"pageRenderMoviesFromCategory"}
+        service={selectService(location)}
+      />
     </div>
   );
 }

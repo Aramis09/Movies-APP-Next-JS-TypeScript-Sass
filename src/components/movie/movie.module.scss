@@ -7,7 +7,6 @@
   text-align: center;
   min-width: 400px;
   max-height: 600px;
-  scroll-snap-align:start;
   position: relative;
   transition: 0.5s;
 
@@ -29,5 +28,6 @@
 }
 .container:hover{
   transition: 0.5s;
+  z-index: 40;
   transform:scale(1.1) ;
 }
