@@ -10,6 +10,8 @@ interface CarrouselMoviesTypes {
   tittle: string;
   serviceTools: RenderMovieProps;
 }
+
+//!Tengo que agregar el condicional para cambir de estilos de acuerdo  en que ubicacion se renderiza
 export default function CarrouselMovies({
   tittle,
   serviceTools,
@@ -19,7 +21,7 @@ export default function CarrouselMovies({
       <Link href={`/movies/${tittle.split(" ")[0]}`}>
         <h4>{tittle}</h4>
       </Link>
-      <RenderMovies service={serviceTools.service} />
+      <RenderMovies service={serviceTools.service} from={serviceTools.from} />
     </div>
   );
 }
