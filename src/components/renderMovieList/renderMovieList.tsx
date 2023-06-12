@@ -8,6 +8,7 @@ import iconArrowLefth from "../../../assets/flecha-izquierda.png";
 import stylesSecond from "./renderMoviesWithCategory.module.scss";
 import styles from "./renderMovies.module.scss";
 import Image from "next/image";
+import Pagination from "../pagination/pagination";
 export interface RenderMovieProps {
   service: (serviceParams: GetMovieParams) => Promise<Movies[]>;
   serviceParams?: GetMovieParams;
@@ -41,8 +42,7 @@ export default function RenderMovies({ service, from }: RenderMovieProps) {
           className={selecStyles.arrows}
           onClick={() => handleChangePage("back", changePaginate, page)}
         />
-        {/* //!Aqui adentro tiene que ir un componente paginate, que haga el calculo
-        de la cantiada de paginas que se van mostrando */}
+        <Pagination currentPage={page.current} />
         <Image
           src={iconArrowRigth}
           alt="arrowToNextPage"
@@ -53,6 +53,3 @@ export default function RenderMovies({ service, from }: RenderMovieProps) {
     </div>
   );
 }
-
-// onClick={() => handleChangePage("back", changePaginate, page)}
-// onClick={() => handleChangePage("next", changePaginate, page)}
