@@ -1,0 +1,26 @@
+.containerShowModal{
+  top: 8%;
+  right: 1%;
+  position: fixed;
+  width: 300px;
+  z-index: 200;
+  background-color: rgb(83, 83, 83);
+  padding: 10px;
+  border-radius: 0.5rem;
+  p {
+    color: white;
+  }
+  .close{
+    position: absolute;
+    right: 4%;
+    color: rgb(194, 149, 240);
+    cursor: pointer;
+  }
+  h4{
+    font-size: x-large;
+    color: rgb(192, 55, 55);
+  }
+}
+.containerHideModal{
+  display: none;
+}

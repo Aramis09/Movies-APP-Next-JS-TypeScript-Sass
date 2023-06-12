@@ -1,0 +1,33 @@
+.container{
+  // background-color: #40128B;
+  margin: 10px;
+  list-style: none;
+  grid-column: span 2;
+  border-radius: 0.5rem;
+  text-align: center;
+  min-width: 400px;
+  max-height: 600px;
+  scroll-snap-align:start;
+  position: relative;
+  transition: 0.5s;
+
+  
+  p {
+    margin-block: 10px;
+  }
+  // .tittle{
+  //   font-size:large;
+  //   // color: rgb(51, 51, 51);
+  //   background-color: rgb(41, 41, 41);
+  //   border-radius: 0.5rem;
+  // }
+  img{
+    // border-radius: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+.container:hover{
+  transition: 0.5s;
+  transform:scale(1.1) ;
+}

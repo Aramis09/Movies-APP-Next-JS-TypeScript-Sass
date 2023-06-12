@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #40128B;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  .logoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-left: 1%;
+  }
+  .linksContainer{
+    margin-right: 5%;
+    display: flex;
+    gap: 10%;
+  }
+}
